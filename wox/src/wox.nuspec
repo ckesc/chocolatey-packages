@@ -4,7 +4,7 @@
   <metadata>
     <!-- Read this before publishing packages to chocolatey.org: https://github.com/chocolatey/chocolatey/wiki/CreatePackages -->
     <id>wox</id>
-    <title>WOX</title>
+    <title>Wox</title>
     <version>1.1.1</version>
     <authors>qianlifeng</authors>
     <owners>CkEsc</owners>
@@ -16,7 +16,7 @@
     <licenseUrl>https://raw.githubusercontent.com/qianlifeng/Wox/master/LICENSE</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <!-- Important note about https://cdn.rawgit.com: Files are cached permanently after the first request. Use commit URLs when updating the icon. -->
-    <!--<iconUrl>http://cdn.rawgit.com/__CHOCO_PKG_MAINTAINER_REPO__/master/icons/wox.png</iconUrl>-->
+    <iconUrl>http://cdn.rawgit.com/ckesc/chocolatey-packages/master/wox/src/wox.png</iconUrl>	
     <!--<dependencies>
       <dependency id="" version="" />
     </dependencies>-->
