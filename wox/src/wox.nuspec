@@ -5,24 +5,22 @@
     <!-- Read this before publishing packages to chocolatey.org: https://github.com/chocolatey/chocolatey/wiki/CreatePackages -->
     <id>wox</id>
     <title>Wox</title>
-    <version>1.1.1</version>
+    <version>1.3.183</version>
     <authors>qianlifeng</authors>
-    <owners>CkEsc</owners>
-    <summary>A launcher for windows</summary>
-    <description>Wox is a launcher for windows, which was inspired by Alfred and Launchy. Wox provide an entry to search everything you want.</description>
+    <owners>CkEsc, Sasha Chernykh</owners>
+    <summary>A launcher for Windows</summary>
+    <description>Wox is a launcher for Windows, which was inspired by Alfred and Launchy. Wox provide an entry to search everything you want.</description>
     <projectUrl>http://www.getwox.com</projectUrl>
     <tags>wox launcher</tags>
     <copyright>Copyright (c) 2013 qianlifeng</copyright>
     <licenseUrl>https://raw.githubusercontent.com/qianlifeng/Wox/master/LICENSE</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <!-- Important note about https://cdn.rawgit.com: Files are cached permanently after the first request. Use commit URLs when updating the icon. -->
-    <iconUrl>http://cdn.rawgit.com/ckesc/chocolatey-packages/master/wox/src/wox.png</iconUrl>	
+    <iconUrl>http://cdn.rawgit.com/ckesc/chocolatey-packages/master/wox/src/wox.png</iconUrl>
     <!--<dependencies>
       <dependency id="" version="" />
     </dependencies>-->
-    <releaseNotes>This is a bug fix release
-Fix Wox handled exception at launch #221
-Preload top used images</releaseNotes>
+    <releaseNotes>bug fixes</releaseNotes>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
