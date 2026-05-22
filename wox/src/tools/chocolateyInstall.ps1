@@ -1,35 +1,26 @@
-﻿$ErrorActionPreference = 'Stop';
+$ErrorActionPreference = 'Stop'
 
-$packageName = 'Wox'
-$toolsDir    = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$url         = 'https://github.com/Wox-launcher/Wox/releases/download/v1.3.183/Wox-1.3.183.exe'
-$url64       = ''
+$toolsDir = Split-Path -Parent $MyInvocation.MyCommand.Definition
+$url64 = 'https://github.com/Wox-launcher/Wox/releases/download/v2.1.0/wox-windows-amd64.exe'
+$fileFullPath = Join-Path $toolsDir 'wox.exe'
 
-$packageArgs = @{
-  packageName   = $packageName
-  unzipLocation = $toolsDir
-  fileType      = 'exe'
-  url           = $url
-  url64bit      = $url64
-
-  checksum      = '006B6C8922FE9D8FEC4D3EF42DAF7D6296C181F0967A856B2BB22F69D2E3BE5E'
-  checksumType  = 'sha256'
-  checksum64    = ''
-  checksumType64= 'sha256'
-
-  ######
-  # EXE
-  ######
-  # silentArgs   = '/S'           # NSIS
-  # silentArgs   = '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART /SP-' # Inno Setup
-  # silentArgs   = '/s'           # InstallShield
-  # silentArgs   = '/s /v"/qn"'   # InstallShield with MSI. Yes, use "quotes" after «v» and «qn», it not typos.
-  # silentArgs   = '/s'           # Wise InstallMaster
-  # silentArgs   = '-s'           # Squirrel
-  # silentArgs   = '-q'           # Install4j
-  # silentArgs   = '-s -u'        # Ghost
-
-  silentArgs   = '/S'
+if ((Get-OSArchitectureWidth) -lt 64) {
+  throw 'Wox 2.x only provides Windows amd64 builds.'
 }
 
-Install-ChocolateyPackage @packageArgs
+Get-ChocolateyWebFile `
+  -PackageName $env:ChocolateyPackageName `
+  -FileFullPath $fileFullPath `
+  -Url64bit $url64 `
+  -Checksum64 '0f6f3118a5be3827f19a823408c490048113b07bb1f9fd7451243b13b147954b' `
+  -ChecksumType64 'sha256'
+
+$programs = [Environment]::GetFolderPath('CommonPrograms')
+if ([string]::IsNullOrWhiteSpace($programs)) {
+  $programs = Join-Path $env:ProgramData 'Microsoft\Windows\Start Menu\Programs'
+}
+
+Install-ChocolateyShortcut `
+  -ShortcutFilePath (Join-Path $programs 'Wox.lnk') `
+  -TargetPath $fileFullPath `
+  -WorkingDirectory $toolsDir
