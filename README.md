@@ -1,7 +1,5 @@
 # chocolatey-packages
 
-Chocolatey package sources maintained by [CkEsc](https://community.chocolatey.org/profiles/CkEsc).
-
 | Package | Upstream | Chocolatey |
 | --- | --- | --- |
 | [wox](wox/src) | [Wox-launcher/Wox](https://github.com/Wox-launcher/Wox) | [community.chocolatey.org/packages/wox](https://community.chocolatey.org/packages/wox) |
@@ -17,10 +15,6 @@ From `wox/src`:
 ## Automated updates
 
 GitHub Actions workflow [`.github/workflows/update-wox.yml`](.github/workflows/update-wox.yml) polls the latest **stable** Wox GitHub release daily, bumps package metadata with [Chocolatey-AU](https://github.com/chocolatey-community/chocolatey-au), pushes to the community repository, and commits the metadata change back to this repo.
-
-Required repository secret:
-
-- `CHOCOLATEY_API_KEY` — from https://community.chocolatey.org/account (API Key)
 
 Optional local run (Windows, with Chocolatey + Chocolatey-AU installed):
 
