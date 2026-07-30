@@ -2,13 +2,13 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>wox</id>
-    <version>2.1.0</version>
+    <version>2.3.0</version>
     <title>Wox</title>
     <authors>Wox Launcher</authors>
     <owners>Pauby, CkEsc, wikilike7, oderzhimyi_Sashei</owners>
-    <licenseUrl>https://raw.githubusercontent.com/Wox-launcher/Wox/v2.1.0/LICENSE</licenseUrl>
+    <licenseUrl>https://raw.githubusercontent.com/Wox-launcher/Wox/v2.3.0/LICENSE</licenseUrl>
     <projectUrl>https://wox-launcher.github.io/Wox/</projectUrl>
-    <iconUrl>https://raw.githubusercontent.com/Wox-launcher/Wox/v2.1.0/assets/app.png</iconUrl>
+    <iconUrl>https://raw.githubusercontent.com/Wox-launcher/Wox/v2.3.0/assets/app.png</iconUrl>
     <packageSourceUrl>https://github.com/Wox-launcher/Wox</packageSourceUrl>
     <projectSourceUrl>https://github.com/Wox-launcher/Wox</projectSourceUrl>
     <docsUrl>https://wox-launcher.github.io/Wox/</docsUrl>
@@ -16,7 +16,13 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Wox is an open-source cross-platform launcher for macOS, Linux, and Windows. It is designed for fast local search, extensibility through plugins, and a lightweight distribution model that can run from a single executable.</description>
     <summary>A cross-platform launcher that simply works</summary>
-    <releaseNotes>Updated to Wox 2.1.0. The upstream Windows release is now distributed as a portable executable.</releaseNotes>
+    <releaseNotes>Updated to Wox 2.3.0, rolling up the 2.1.1 and 2.2.0 releases skipped since the last published package:
+
+2.3.0: Adds encrypted Cloud Sync for settings, plugins, and themes, plus Window Manager workspace layouts; improves Linux/Wayland, hotkey, preview, and file search behavior.
+
+2.2.0: Adds a Theme Editor, a Window Manager plugin, release channels, Caps Lock combo hotkeys, and favorite folders; improves Linux Wayland support, file previews, and hotkey handling.
+
+2.1.1: Adds settings search and AI command templates; improves screenshot capture, hotkey display, and file search performance.</releaseNotes>
     <copyright>Copyright (c) 2013-present Wox Launcher</copyright>
     <tags>wox launcher alfred launchy spotlight</tags>
   </metadata>

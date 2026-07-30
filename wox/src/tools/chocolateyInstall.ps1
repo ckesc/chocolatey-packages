@@ -1,7 +1,7 @@
 $ErrorActionPreference = 'Stop'
 
 $toolsDir = Split-Path -Parent $MyInvocation.MyCommand.Definition
-$url64 = 'https://github.com/Wox-launcher/Wox/releases/download/v2.1.0/wox-windows-amd64.exe'
+$url64 = 'https://github.com/Wox-launcher/Wox/releases/download/v2.3.0/wox-windows-amd64.exe'
 $fileFullPath = Join-Path $toolsDir 'wox.exe'
 
 if ((Get-OSArchitectureWidth) -lt 64) {
@@ -12,7 +12,7 @@ Get-ChocolateyWebFile `
   -PackageName $env:ChocolateyPackageName `
   -FileFullPath $fileFullPath `
   -Url64bit $url64 `
-  -Checksum64 '0f6f3118a5be3827f19a823408c490048113b07bb1f9fd7451243b13b147954b' `
+  -Checksum64 'bd4c0d29b6b81b58dddf36d4770088459c06d1270d1ce150bba0598464f87446' `
   -ChecksumType64 'sha256'
 
 $programs = [Environment]::GetFolderPath('CommonPrograms')
