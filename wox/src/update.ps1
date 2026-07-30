@@ -12,7 +12,7 @@ $packageSourceUrl = 'https://github.com/ckesc/chocolatey-packages'
 function global:au_SearchReplace {
   @{
     '.\tools\chocolateyInstall.ps1' = @{
-      "(?i)(^\s*`$url64\s*=\s*)('.*')"   = "`$1'$($Latest.URL64)'"
+      "(?i)(^\s*\`$url64\s*=\s*)('.*')"   = "`$1'$($Latest.URL64)'"
       "(?i)(-\s*Checksum64\s+)('.*')"    = "`$1'$($Latest.Checksum64)'"
     }
     '.\legal\VERIFICATION.txt' = @{
