@@ -18,7 +18,7 @@ function global:au_SearchReplace {
     '.\legal\VERIFICATION.txt' = @{
       '(?i)(Package Version:\s*).*' = "`${1}$($Latest.Version)"
       '(?i)https://github\.com/Wox-launcher/Wox/releases/download/v[\w\.-]+/wox-windows-amd64\.exe' = "$($Latest.URL64)"
-      '(?im)(Checksum:\s*\r?\n)[a-fA-F0-9]{64}' = "`${1}$($Latest.Checksum64)"
+      '(?i)^[a-fA-F0-9]{64}$' = "$($Latest.Checksum64)"
       '(?i)(asset metadata for Wox )v[\w\.-]+' = "`${1}$($Latest.Tag)"
       '(?i)https://github\.com/Wox-launcher/Wox/releases/tag/v[\w\.-]+' = "$($Latest.ReleaseUrl)"
     }
