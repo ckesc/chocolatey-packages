@@ -30,9 +30,21 @@ function global:au_SearchReplace {
       '(?i)(<licenseUrl>).*?(</licenseUrl>)' = "`${1}https://raw.githubusercontent.com/Wox-launcher/Wox/$($Latest.Tag)/LICENSE`$2"
       '(?i)(<iconUrl>).*?(</iconUrl>)' = "`${1}https://raw.githubusercontent.com/Wox-launcher/Wox/$($Latest.Tag)/assets/app.png`$2"
       '(?i)(<packageSourceUrl>).*?(</packageSourceUrl>)' = "`${1}$packageSourceUrl`$2"
-      '(?i)(<releaseNotes>)(?s).*?(</releaseNotes>)' = "`${1}$($Latest.ReleaseNotes)`$2"
     }
   }
+}
+
+# releaseNotes is handled here instead of via au_SearchReplace because
+# Chocolatey-AU applies those patterns per-line (Get-Content without -Raw),
+# which can't match/replace a <releaseNotes> value that spans multiple lines
+# (e.g. the hand-written multi-paragraph notes from a manual version bump).
+function global:au_AfterUpdate($Package) {
+  $xml = New-Object xml
+  $xml.PSBase.PreserveWhitespace = $true
+  $xml.Load($Package.NuspecPath)
+  $xml.package.metadata.releaseNotes = $Latest.ReleaseNotes
+  $utf8NoBom = New-Object System.Text.UTF8Encoding($false)
+  [System.IO.File]::WriteAllText($Package.NuspecPath, $xml.InnerXml, $utf8NoBom)
 }
 
 function global:au_BeforeUpdate {
