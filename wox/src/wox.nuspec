@@ -9,7 +9,7 @@
     <licenseUrl>https://raw.githubusercontent.com/Wox-launcher/Wox/v2.3.0/LICENSE</licenseUrl>
     <projectUrl>https://wox-launcher.github.io/Wox/</projectUrl>
     <iconUrl>https://raw.githubusercontent.com/Wox-launcher/Wox/v2.3.0/assets/app.png</iconUrl>
-    <packageSourceUrl>https://github.com/Wox-launcher/Wox</packageSourceUrl>
+    <packageSourceUrl>https://github.com/ckesc/chocolatey-packages</packageSourceUrl>
     <projectSourceUrl>https://github.com/Wox-launcher/Wox</projectSourceUrl>
     <docsUrl>https://wox-launcher.github.io/Wox/</docsUrl>
     <bugTrackerUrl>https://github.com/Wox-launcher/Wox/issues</bugTrackerUrl>
