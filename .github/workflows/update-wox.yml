@@ -27,7 +27,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
@@ -64,15 +64,18 @@ jobs:
         run: |
           $ErrorActionPreference = 'Stop'
 
-          if ($Env:au_Push -eq 'true' -and [string]::IsNullOrWhiteSpace($Env:api_key)) {
-            throw 'CHOCOLATEY_API_KEY repository secret is required when push is enabled.'
+          $push = $Env:au_Push -eq 'true'
+          $hasKey = -not [string]::IsNullOrWhiteSpace($Env:api_key)
+          Write-Host "au_Push=$push api_key_present=$hasKey force=$($Env:AU_FORCE -eq 'true')"
+
+          if ($push -and -not $hasKey) {
+            throw "CHOCOLATEY_API_KEY repository secret is missing, but push is enabled.`n`nAdd it under: Settings -> Secrets and variables -> Actions -> New repository secret`nName: CHOCOLATEY_API_KEY`nOr re-run this workflow with push = false for a dry run."
           }
 
           if ($Env:AU_FORCE -eq 'true') {
             $global:au_Force = $true
           }
 
-          Write-Host "au_Push=$Env:au_Push force=$($global:au_Force -eq $true)"
           ./update_all.ps1
 
       - name: Commit package metadata if changed

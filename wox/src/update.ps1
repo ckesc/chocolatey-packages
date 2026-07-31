@@ -12,13 +12,13 @@ $packageSourceUrl = 'https://github.com/ckesc/chocolatey-packages'
 function global:au_SearchReplace {
   @{
     '.\tools\chocolateyInstall.ps1' = @{
-      "(?i)(^\s*`$url64\s*=\s*)('.*')"   = "`$1'$($Latest.URL64)'"
+      "(?i)(^\s*\`$url64\s*=\s*)('.*')"   = "`$1'$($Latest.URL64)'"
       "(?i)(-\s*Checksum64\s+)('.*')"    = "`$1'$($Latest.Checksum64)'"
     }
     '.\legal\VERIFICATION.txt' = @{
       '(?i)(Package Version:\s*).*' = "`${1}$($Latest.Version)"
       '(?i)https://github\.com/Wox-launcher/Wox/releases/download/v[\w\.-]+/wox-windows-amd64\.exe' = "$($Latest.URL64)"
-      '(?im)(Checksum:\s*\r?\n)[a-fA-F0-9]{64}' = "`${1}$($Latest.Checksum64)"
+      '(?i)^[a-fA-F0-9]{64}$' = "$($Latest.Checksum64)"
       '(?i)(asset metadata for Wox )v[\w\.-]+' = "`${1}$($Latest.Tag)"
       '(?i)https://github\.com/Wox-launcher/Wox/releases/tag/v[\w\.-]+' = "$($Latest.ReleaseUrl)"
     }
@@ -30,9 +30,21 @@ function global:au_SearchReplace {
       '(?i)(<licenseUrl>).*?(</licenseUrl>)' = "`${1}https://raw.githubusercontent.com/Wox-launcher/Wox/$($Latest.Tag)/LICENSE`$2"
       '(?i)(<iconUrl>).*?(</iconUrl>)' = "`${1}https://raw.githubusercontent.com/Wox-launcher/Wox/$($Latest.Tag)/assets/app.png`$2"
       '(?i)(<packageSourceUrl>).*?(</packageSourceUrl>)' = "`${1}$packageSourceUrl`$2"
-      '(?i)(<releaseNotes>)(?s).*?(</releaseNotes>)' = "`${1}$($Latest.ReleaseNotes)`$2"
     }
   }
+}
+
+# releaseNotes is handled here instead of via au_SearchReplace because
+# Chocolatey-AU applies those patterns per-line (Get-Content without -Raw),
+# which can't match/replace a <releaseNotes> value that spans multiple lines
+# (e.g. the hand-written multi-paragraph notes from a manual version bump).
+function global:au_AfterUpdate($Package) {
+  $xml = New-Object xml
+  $xml.PSBase.PreserveWhitespace = $true
+  $xml.Load($Package.NuspecPath)
+  $xml.package.metadata.releaseNotes = $Latest.ReleaseNotes
+  $utf8NoBom = New-Object System.Text.UTF8Encoding($false)
+  [System.IO.File]::WriteAllText($Package.NuspecPath, $xml.InnerXml, $utf8NoBom)
 }
 
 function global:au_BeforeUpdate {
