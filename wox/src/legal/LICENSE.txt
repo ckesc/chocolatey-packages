@@ -1,4 +1,4 @@
 Wox is distributed under the GPL-3.0 license.
 
 Project license:
-https://raw.githubusercontent.com/Wox-launcher/Wox/v2.4.0/LICENSE
+https://raw.githubusercontent.com/Wox-launcher/Wox/v2.4.1/LICENSE

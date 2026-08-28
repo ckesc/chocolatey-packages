@@ -2,13 +2,13 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>wox</id>
-    <version>2.4.0</version>
+    <version>2.4.1</version>
     <title>Wox</title>
     <authors>Wox Launcher</authors>
     <owners>Pauby, CkEsc, wikilike7, oderzhimyi_Sashei</owners>
-    <licenseUrl>https://raw.githubusercontent.com/Wox-launcher/Wox/v2.4.0/LICENSE</licenseUrl>
+    <licenseUrl>https://raw.githubusercontent.com/Wox-launcher/Wox/v2.4.1/LICENSE</licenseUrl>
     <projectUrl>https://wox-launcher.github.io/Wox/</projectUrl>
-    <iconUrl>https://raw.githubusercontent.com/Wox-launcher/Wox/v2.4.0/assets/app.png</iconUrl>
+    <iconUrl>https://raw.githubusercontent.com/Wox-launcher/Wox/v2.4.1/assets/app.png</iconUrl>
     <packageSourceUrl>https://github.com/ckesc/chocolatey-packages</packageSourceUrl>
     <projectSourceUrl>https://github.com/Wox-launcher/Wox</projectSourceUrl>
     <docsUrl>https://wox-launcher.github.io/Wox/</docsUrl>
@@ -16,7 +16,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Wox is an open-source cross-platform launcher for macOS, Linux, and Windows. It is designed for fast local search, extensibility through plugins, and a lightweight distribution model that can run from a single executable.</description>
     <summary>A cross-platform launcher that simply works</summary>
-    <releaseNotes>Updated to Wox 2.4.0. See https://github.com/Wox-launcher/Wox/releases/tag/v2.4.0</releaseNotes>
+    <releaseNotes>Updated to Wox 2.4.1. See https://github.com/Wox-launcher/Wox/releases/tag/v2.4.1</releaseNotes>
     <copyright>Copyright (c) 2013-present Wox Launcher</copyright>
     <tags>wox launcher alfred launchy spotlight</tags>
   </metadata>
