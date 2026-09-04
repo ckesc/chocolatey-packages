@@ -3,15 +3,15 @@ Verification is intended to assist the Chocolatey moderators and community
 in verifying that this package's remote software is the same software released
 by the upstream project.
 
-Package Version: 2.4.1
+Package Version: 2.4.2
 
 Download URL:
-https://github.com/Wox-launcher/Wox/releases/download/v2.4.1/wox-windows-amd64.exe
+https://github.com/Wox-launcher/Wox/releases/download/v2.4.2/wox-windows-amd64.exe
 
 Checksum Type: sha256
 Checksum:
-9482faed4333c40d8f71905747da6a9f23802a3fc7db098b75cb40ece12b0c00
+0eb554feb418ea367d476e7d7924d6229fc6b9332fa9264b59aaa3915c178c16
 
-The checksum is published in the GitHub release asset metadata for Wox v2.4.1
+The checksum is published in the GitHub release asset metadata for Wox v2.4.2
 Release page:
-https://github.com/Wox-launcher/Wox/releases/tag/v2.4.1
+https://github.com/Wox-launcher/Wox/releases/tag/v2.4.2
